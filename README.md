@@ -1,2 +1,2 @@
-# Web-Game
-Milestone Project
+# Web-Game : Milestone Project 1
+
