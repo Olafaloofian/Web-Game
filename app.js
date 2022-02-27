@@ -48,4 +48,4 @@ function wack(e){
     scoreBoard.textContent =score;
 
 }
-zombies.forEach(zombie => zombie.addEventListener('click',wack))
+wack.forEach(zombie => zombie.addEventListener('click',wack))
