@@ -1,10 +1,11 @@
 const holes= document.querySelectorAll('.hole');
 const scoreBoard= document.querySelectorAll('.score');
 const zombie= document.querySelectorAll('.zombie');
-let lastHole;;
+let lastHole;
 let timeUp = false;
 let score = 0;
 
+//function make random time for zombie to pop up from hole
 function randomTime(min, max){
     return Math.round(Math.random() * (max - min)+min);
 }
@@ -27,9 +28,9 @@ function peep(){
     hole.classList.add('up');
     setTimeout(()=>{
         hole.classList.remove('up');
-        if(!timeUp){
+        if(!timeUp)
             peep();
-        }
+        
     }, time);
 }
 
@@ -38,14 +39,16 @@ function startGame(){
     timeUp =false;
     score = 0;
     peep();
-    setTimeout(() => timeUp = true, 15000)
+    setTimeout(() => timeUp = true, 10000)
 }
 
-function wack(e){
+function bonk(e){
     if(!e.isTrusted) return;
     score++;
-    this.parentNode.classList.remove('up');
-    scoreBoard.textContent =score;
+    this.classList.remove('up');
+    scoreBoard.textContent = score;
+
 
 }
-wack.forEach(zombie => zombie.addEventListener('click',wack))
+
+zombie.forEach(zombie => zombie.addEventListener('click',bonk))
