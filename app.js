@@ -42,13 +42,9 @@ function startGame(){
     setTimeout(() => timeUp = true, 10000)
 }
 
-function bonk(e){
-    if(!e.isTrusted) return;
+
+document.getElementById('zombie').onclick=function(){
+    var score = parsInt(document.getElementById('score').innerHTML);
     score++;
-    this.classList.remove('up');
-    scoreBoard.textContent = score;
-
-
+    document.getElementById('score').innerHTML = score;
 }
-
-zombie.forEach(zombie => zombie.addEventListener('click',bonk))
