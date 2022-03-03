@@ -5,7 +5,7 @@ let lastHole;
 let timeUp = false;
 let score = 0;
 
-//create a function to make a random time for mole to pop from the hole
+//create a function to make a random time for zombie to pop from the hole
 function randomTime(min, max) {
     return Math.round(Math.random() * (max - min) + min);
 }
@@ -23,11 +23,11 @@ function randomHole(holes){
 }
 
 function peep() {
-    const time = randomTime(500, 1000); //get a random time to determine how long mole should peep
+    const time = randomTime(500, 1000); // random time to determine how long zombie should peep
     const hole = randomHole(holes); //get the random hole from the randomHole function
-    hole.classList.add('up'); //add the CSS class so selected mole can "pop up"
+    hole.classList.add('up'); //add the CSS class so selected zombie can "pop up"
     setTimeout(() => {
-        hole.classList.remove('up'); //make the selected mole "pop down" after a random time
+        hole.classList.remove('up'); //make the selected zombie "pop down" after a random time
         if(!timeUp) {
             peep();
         }
